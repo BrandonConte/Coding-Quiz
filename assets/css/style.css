@@ -1,0 +1,24 @@
+#wrapper {
+    border: 1px #555555;
+    width: 300px;
+    height: 300px;
+    top: 25%;
+    left: 35%;
+    position: absolute;
+}
+
+#timeLeft {
+    float: right;
+}
+
+#startQuiz {
+    color: white;
+    margin-left: 20%;
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: #8399fd;
+}
+
+#questions {
+    margin: 10px;
+}

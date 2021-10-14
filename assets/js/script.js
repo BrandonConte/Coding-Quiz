@@ -19,6 +19,8 @@ var timeInterval = 0;
 
 
 
+
+
 // Starts timer with button click -- 
 startQuiz.addEventListener("click", function() {
     

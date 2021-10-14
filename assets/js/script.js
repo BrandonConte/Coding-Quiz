@@ -19,9 +19,20 @@ var timeInterval = 0;
 
 
 
-
-
 // Starts timer with button click -- 
 startQuiz.addEventListener("click", function() {
+    
+    if (timeInterval === 0) {
+        timeInterval = setInterval(function() {
+            secondsLeft--;
+            timeLeft.textContent = "Time:" + secondsLeft;
+            // When time hits 0 will end quiz and say times up
+            if (secondsLeft = 0) {
+                clearInterval(timeInterval);
+                timeLeft.textContent = "Time's up";
+                
+            }
+        }, 1000);
+    }
     
 })

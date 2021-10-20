@@ -16,8 +16,25 @@ var multiChoice = [
         answer: "Parentheses"
     },
     {
-
-    }
+        inquiry: "Strings must be enclosed in what to be assigned to a variable(s).",
+        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parantheses"],
+        answer: "Parentheses"
+    },
+    {
+        inquiry: "Strings must be enclosed in what to be assigned to a variable(s).",
+        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parantheses"],
+        answer: "Parentheses"
+    },
+    {
+        inquiry: "Strings must be enclosed in what to be assigned to a variable(s).",
+        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parantheses"],
+        answer: "Parentheses"
+    },
+    {
+        inquiry: "Strings must be enclosed in what to be assigned to a variable(s).",
+        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parantheses"],
+        answer: "Parentheses"
+    },
 ]
 
 // Total time of the quiz
@@ -96,6 +113,6 @@ function compare(event) {
 
     if (questionInfo >= multiChoice.length) {
         newDiv.textContent = "The quiz is finished!" + " " + "You have answered " + score + " out of " + multiChoice.length + " Correctly";
-        
+
     }
 }

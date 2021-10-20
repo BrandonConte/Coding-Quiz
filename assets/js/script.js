@@ -70,3 +70,32 @@ function render(questionInfo) {
      })
     
 }
+
+// Add event to compare choice against the answer
+function compare(event) {
+    var element = event.target;
+    if (element.matches("li")) {
+
+        var newDiv = document.createElement("div");
+        newDiv.setAttribute("id", "newDiv");
+
+        // If answer is correct
+        if (element.textContent === multiChoice[questionInfo].answer) {
+            score++;
+            newDiv.textContent = "Correct answer, the answer is " + multiChoice[questionInfo].answer;
+        }
+        // If wrong
+        else {
+            // Will deduct chosen penalty seconds off the remaining time
+            secondsLeft = secondsLeft - penalty;
+            newDiv.textContent = "Wrong answer, the correct answer is " + multiChoice[questionInfo].answer;
+        }
+    }
+    // This will decide what # question the user is on.
+    questionInfo++;
+
+    if (questionInfo >= multiChoice.length) {
+        newDiv.textContent = "The quiz is finished!" + " " + "You have answered " + score + " out of " + multiChoice.length + " Correctly";
+        
+    }
+}

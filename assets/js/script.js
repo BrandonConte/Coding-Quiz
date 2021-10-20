@@ -17,7 +17,8 @@ var penalty = 5;
 // Interval timer - Will be added below with if statements
 var timeInterval = 0;
 
-
+// Creates new element
+var ulNew = document.createElement("ul");
 
 // Starts timer with button click -- 
 startQuiz.addEventListener("click", function() {
@@ -30,9 +31,7 @@ startQuiz.addEventListener("click", function() {
             if (secondsLeft = 0) {
                 clearInterval(timeInterval);
                 timeLeft.textContent = "Time's up";
-                
             }
         }, 1000);
     }
-    
 })

@@ -8,6 +8,18 @@ var startQuiz = document.querySelector("#startQuiz");
 var wrapper = document.querySelector("#wrapper");
 var questions = document.querySelector("#questions");
 
+// Putting questions below
+var multiChoice = [
+    {
+        inquiry: "Strings must be enclosed in what to be assigned to a variable(s).",
+        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parantheses"],
+        answer: "Parentheses"
+    },
+    {
+
+    }
+]
+
 // Total time of the quiz
 var secondsLeft = 81;
 
@@ -34,4 +46,27 @@ startQuiz.addEventListener("click", function() {
             }
         }, 1000);
     }
+    
 })
+
+function render(questionInfo) {
+     // clear current saved data
+     questions.innerHTML = "";
+     ulNew.innerHTML = "";
+    // For loop that runs through all the info within the array
+     for (var i = 0; i < multiChoice.length; i++) {
+         // Appends multichoice options 
+         var userInquiry = multiChoice[questionInfo].inquiry;
+         var userChoices = multiChoice[questionInfo].choice;
+         questions.textContent = userInquiry;
+     }
+     // Creaters a new one for each question choice. 
+     userChoices.forEach(function (newQ) {
+         var listQ = document.createElement("li");
+         listQ.textContent = newQ;
+         questions.appendChild(ulNew);
+         ulNew.appendChild(listQ);
+         listQ.addEventListener("click", (compare));
+     })
+    
+}

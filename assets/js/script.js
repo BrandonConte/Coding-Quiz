@@ -118,5 +118,20 @@ function compare(event) {
     if (questionInfo >= multiChoice.length) {
         newDiv.textContent = "The quiz is finished!" + " " + "You have answered " + score + " out of " + multiChoice.length + " Correctly";
 
+    } else {
+        render(questionInfo);
     }
+    questions.appendChild(newDiv);
+}
+
+// Finished function will append the last page of the quiz
+function finished() {
+    questions.innerHTML = "";
+    timerLeft.innerHTML = "";
+
+    var newH1 = document.createElement("h1");
+    newH1.setAttribute("id", "newH1");
+    newH1.textContent = "Finished!"
+
+    questions.appendChild(newH1);
 }

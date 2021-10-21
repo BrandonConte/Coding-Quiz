@@ -161,4 +161,12 @@ function finished() {
     newSubmit.textContent = "Submit";
     questions.appendChild(newSubmit);
 
+    // Input fields
+    var newInput = document.createElement("input");
+    newInput.setAttribute("type", "text");
+    newInput.setAttribute("id", "initials");
+    newInput.textContent = "";
+    questions.appendChild(newInput);
+
+    
 }

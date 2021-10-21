@@ -148,5 +148,17 @@ function finished() {
         newP.textContent = "Your final score is " + TimeLeft;
         questions.appendChild(newP2);
     }
-    
+    // Creates new label
+    var newLabel = document.createElement("label");
+    newLabel.setAttribute("id", "newLabel");
+    newLabel.textContent = "Please enter your initials here: ";
+    questions.appendChild(newLabel);
+
+    // submit button
+    var newSubmit = document.createElement("button");
+    newSubmit.setAttribute("type", "submit");
+    newSubmit.setAttribute("id", "Submit");
+    newSubmit.textContent = "Submit";
+    questions.appendChild(newSubmit);
+
 }

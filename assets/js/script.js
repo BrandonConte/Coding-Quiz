@@ -40,6 +40,7 @@ var multiChoice = [
 // Penalty timer - Ticks off this amount of time in seconds if question is answered incorrectly. ( in this case 5 seconds)
 var penalty = 10;
 
+
 // Creates new element
 var ulNew = document.createElement("ul");
 
@@ -108,7 +109,7 @@ function compare(event) {
         // If wrong
         else {
             // Will deduct chosen penalty seconds off the remaining time
-            secondsLeft = secondsLeft - penalty;
+            timeLeft = timeLeft - penalty;
             newDiv.textContent = "Wrong answer, the correct answer is " + multiChoice[questionInfo].answer;
         }
     }
@@ -134,4 +135,18 @@ function finished() {
     newH1.textContent = "Finished!"
 
     questions.appendChild(newH1);
+    // Makes new paragraph
+    var newP = document.createElement("p");
+    newP.setAttribute("id", "newP");
+    questions.appendChild(newP);
+
+    // Calculates time remaining - Then when finished will replace it with your score from the quiz.
+    if (secondsLeft >= 0) {
+        var TimeLeft = timeLeft;
+        var newP2 = document.createElement("p");
+        clearInterval(timeInterval);
+        newP.textContent = "Your final score is " + TimeLeft;
+        questions.appendChild(newP2);
+    }
+    
 }

@@ -4,7 +4,7 @@ var questionInfo = 0;
 
 // More declared variables
 var timerLeft = document.querySelector("#timerLeft");
-var startQuiz = document.querySelector("#startQuiz");
+var timer = document.querySelector("#startQuiz");
 var wrapper = document.querySelector("#wrapper");
 var questions = document.querySelector("#questions");
 
@@ -38,40 +38,27 @@ var multiChoice = [
 ];
 
 // Penalty timer - Ticks off this amount of time in seconds if question is answered incorrectly. ( in this case 5 seconds)
-var penalty = 10;
-// var secondsLeft
+var penalty = 15;
+var timeLeft = 80;
+var holdInterval = 0;
 
 // Creates new element
 var ulNew = document.createElement("ul");
 
+timer.addEventListener("click", function() {
+    if (holdInterval === 0) {
+        holdInterval = setInterval(function() { 
+            timeLeft--;
+            timerLeft.textContent = "Time Remaining: " + timeLeft;
 
-
-// Starts timer with button click -- 
-startQuiz.addEventListener("click", function() {
-    function countdown () {
-
-        var timeLeft = 80;
-    
-        var timeInterval = setInterval(function() {
-            
-            if (timeLeft > 1) {
-                timerLeft.textContent = timeLeft + " seconds remaining";
-    
-                timeLeft--;
-            } else if (timeLeft === 1) {
-                timerLeft.textContent = timeLeft + "seconds remaining";
-                timeLeft--;
-    
-            } else {
-                timerLeft.textContent = "";
-                clearInterval(timeInterval);
-                displayMessage();
+            if (timeLeft <= 0) {
+                clearInterval(holdInterval);
+                finished();
+                timerLeft.textContent = "time's up!";
             }
         }, 1000);
-        render(questionInfo);
     }
-
-countdown();
+    render(questionInfo);
 })
 
 function render(questionInfo) {
@@ -148,7 +135,7 @@ function finished() {
     if (timeLeft >= 0) {
         var TimeLeft = timeLeft;
         var newP2 = document.createElement("p");
-        clearInterval(timeInterval);
+        clearInterval(holdInterval);
         newP.textContent = "Your final score is " + TimeLeft;
         questions.appendChild(newP2);
     }

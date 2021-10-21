@@ -35,7 +35,7 @@ var multiChoice = [
         choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parantheses"],
         answer: "Parentheses"
     },
-]
+];
 
 // Penalty timer - Ticks off this amount of time in seconds if question is answered incorrectly. ( in this case 5 seconds)
 var penalty = 10;
@@ -44,30 +44,33 @@ var penalty = 10;
 // Creates new element
 var ulNew = document.createElement("ul");
 
-function countdown () {
 
-    var timeLeft = 80;
-
-    var timeInterval = setInterval(function() {
-        
-        if (timeLeft > 1) {
-            timerLeft.textContent = timeLeft + " seconds remaining";
-
-            timeLeft--;
-        } else if (timeLeft === 1) {
-            timerLeft.textContent = timeLeft + "seconds remaining";
-            timeLeft--;
-
-        } else {
-            timerLeft.textContent = "";
-            clearInterval(timeInterval);
-            displayMessage();
-        }
-    }, 1000);
-}
 
 // Starts timer with button click -- 
 startQuiz.addEventListener("click", function() {
+    function countdown () {
+
+        var timeLeft = 80;
+    
+        var timeInterval = setInterval(function() {
+            
+            if (timeLeft > 1) {
+                timerLeft.textContent = timeLeft + " seconds remaining";
+    
+                timeLeft--;
+            } else if (timeLeft === 1) {
+                timerLeft.textContent = timeLeft + "seconds remaining";
+                timeLeft--;
+    
+            } else {
+                timerLeft.textContent = "";
+                clearInterval(timeInterval);
+                displayMessage();
+            }
+        }, 1000);
+        render(questionInfo);
+    }
+
 countdown();
 })
 

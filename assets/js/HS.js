@@ -18,6 +18,12 @@ if (HighScores !== null) {
         // creates new line for the highscores
         var newLi = document.createElement("li");
         newLi.textContent = HighScores[i].initials + " " + HighScores[i].score;
-        
+        highScore.appendChild(newLi);
     }
 }
+
+// Go back button event listener
+
+goBack.addEventListener("click", function() {
+    window.location.replace("./index.html");
+});

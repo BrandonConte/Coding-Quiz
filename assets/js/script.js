@@ -169,4 +169,29 @@ function finished() {
     questions.appendChild(newInput);
 
     // .addEventListener on click that saves initials and saves to local storage. 
+    newSubmit.addEventListener("click", function() {
+        var initials = createInput.value;
+        if (initials === null) {
+
+        }
+        else {
+            var finalScore = {
+                initials: initials,
+                score: TimeLeft
+            }
+            var HighScores = localStorage.getItem("HighScores");
+            if (HighScores === null) {
+                    HighScores = [];
+            }
+            else {
+                HighScores = JSON.parse(HighScores);
+            }
+            HighScores.push(finalScore);
+            var newScore = JSON.stringify(HighScores);
+            localStorage.setItem("HighScores", newScore);
+
+            // Brings user to last page (Highscores)
+            window.location.replace("./HS.html")
+        }
+    })
 }

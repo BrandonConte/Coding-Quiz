@@ -7,7 +7,7 @@
     position: absolute;
 }
 
-#timerLeft {
+#wrapper #timerLeft {
     float: right;
 }
 
@@ -31,6 +31,24 @@ button {
     border-radius: 10px;
 }
 
+#clear {
+    position: relative;
+    text-align: center;
+    padding: 8px;
+    font-size: 16px;
+    color: white;
+    background-color: gray;
+}
+
+#goBack {
+    position: relative;
+    text-align: center;
+    padding: 8px;
+    font-size: 16px;
+    color: white;
+    background-color: gray;
+}
+
 /* h1 {
     text-align: center;
 } */
@@ -41,6 +59,11 @@ li {
     font-size: 20px;
     padding: 8px 16px;
     margin-top: 8px;
+}
+
+#newDiv {
+    margin-top: 15px;
+    border-top: 2px lightslategray;
 }
 
 

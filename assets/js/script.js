@@ -12,34 +12,34 @@ var questions = document.querySelector("#questions");
 var multiChoice = [
     {
         inquiry: "Strings must be enclosed in what to be assigned to a variable(s).",
-        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parantheses"],
+        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parentheses"],
         answer: "Parentheses"
     },
     {
         inquiry: "Strings must be enclosed in what to be assigned to a variable(s).",
-        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parantheses"],
+        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parentheses"],
         answer: "Parentheses"
     },
     {
         inquiry: "Strings must be enclosed in what to be assigned to a variable(s).",
-        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parantheses"],
+        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parentheses"],
         answer: "Parentheses"
     },
     {
         inquiry: "Strings must be enclosed in what to be assigned to a variable(s).",
-        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parantheses"],
+        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parentheses"],
         answer: "Parentheses"
     },
     {
         inquiry: "Strings must be enclosed in what to be assigned to a variable(s).",
-        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parantheses"],
+        choice: ["Curly Brackets", "Square Brackets", "Quotes", "Parentheses"],
         answer: "Parentheses"
     },
 ];
 
 // Penalty timer - Ticks off this amount of time in seconds if question is answered incorrectly. ( in this case 5 seconds)
 var penalty = 10;
-
+// var secondsLeft
 
 // Creates new element
 var ulNew = document.createElement("ul");
@@ -120,6 +120,7 @@ function compare(event) {
     questionInfo++;
 
     if (questionInfo >= multiChoice.length) {
+        finished();
         newDiv.textContent = "The quiz is finished!" + " " + "You have answered " + score + " out of " + multiChoice.length + " Correctly";
 
     } else {
@@ -144,7 +145,7 @@ function finished() {
     questions.appendChild(newP);
 
     // Calculates time remaining - Then when finished will replace it with your score from the quiz.
-    if (secondsLeft >= 0) {
+    if (timeLeft >= 0) {
         var TimeLeft = timeLeft;
         var newP2 = document.createElement("p");
         clearInterval(timeInterval);
@@ -157,6 +158,13 @@ function finished() {
     newLabel.textContent = "Please enter your initials here: ";
     questions.appendChild(newLabel);
 
+     // Input fields
+     var newInput = document.createElement("input");
+     newInput.setAttribute("type", "text");
+     newInput.setAttribute("id", "initials");
+     newInput.textContent = "";
+     questions.appendChild(newInput);
+
     // submit button
     var newSubmit = document.createElement("button");
     newSubmit.setAttribute("type", "submit");
@@ -164,16 +172,11 @@ function finished() {
     newSubmit.textContent = "Submit";
     questions.appendChild(newSubmit);
 
-    // Input fields
-    var newInput = document.createElement("input");
-    newInput.setAttribute("type", "text");
-    newInput.setAttribute("id", "initials");
-    newInput.textContent = "";
-    questions.appendChild(newInput);
+   
 
     // .addEventListener on click that saves initials and saves to local storage. 
     newSubmit.addEventListener("click", function() {
-        var initials = createInput.value;
+        var initials = newInput.value;
         if (initials === null) {
 
         }

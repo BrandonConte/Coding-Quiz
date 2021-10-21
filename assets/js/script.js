@@ -168,5 +168,5 @@ function finished() {
     newInput.textContent = "";
     questions.appendChild(newInput);
 
-    
+    // .addEventListener on click that saves initials and saves to local storage. 
 }
